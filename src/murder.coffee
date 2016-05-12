@@ -1,15 +1,8 @@
 # Description
 #   Kill your Hubot
 #
-# Configuration:
-#   LIST_OF_ENV_VARS_TO_SET - Describe any optional/required environment variables.
-#
 # Commands:
-#   hubot hello - <what the respond trigger does>
-#   orly - <what the hear trigger does>
-#
-# Notes:
-#   <optional notes required for the script>
+#   hubot (die|restart|reboot) - Kills hubot
 #
 # Author:
 #   Chris Contolini
@@ -17,7 +10,7 @@
 messages =
   birth: [
     "I'm baaaaaaaaack. :godmode:"
-    "Back from the dead. :angel:"
+    "I'm back from the dead. :angel:"
     "Bot reporting in. :muscle:"
     "I missed you :couplekiss:"
   ]
@@ -34,10 +27,14 @@ randMsg = (arr) ->
 class MurderRobot
   constructor: (@robot) ->
     @murderScene = @robot.brain.get('murderScene') or {}
-    robot.messageRoom @murderScene.placeOfDeath, randMsg messages.birth if @murderScene.placeOfDeath
+    if @murderScene.placeOfDeath
+      msg = "#{@murderScene.perp}: #{randMsg messages.birth}"
+      robot.messageRoom @murderScene.placeOfDeath, msg
   kill: (res) ->
-    @murderScene.timeOfDeath = Date.now()
-    @murderScene.placeOfDeath = res.envelope.room
+    @murderScene =
+      timeOfDeath: Date.now()
+      placeOfDeath: res.envelope.room
+      perp: res.envelope.user.name
     @robot.brain.set 'murderScene', @murderScene
 
 module.exports = (robot) ->
@@ -48,4 +45,4 @@ module.exports = (robot) ->
     res.send randMsg messages.death
     setTimeout () ->
       process.exit 0
-    , 500
+    , 1000

@@ -22,7 +22,7 @@ Then add **hubot-murder** to your `external-scripts.json`:
 user1>> hubot (die|restart|reboot)
 hubot>> Et tu, brute? 😭
 ...waiting for your process manager to start it back up...
-hubot>> Back from the dead. 👼
+hubot>> user1: I'm back from the dead. 👼
 ```
 
 ## Contributing
