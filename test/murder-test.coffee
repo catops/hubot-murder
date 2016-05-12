@@ -10,7 +10,8 @@ describe 'die', ->
       respond: sinon.spy()
       hear: sinon.spy()
       brain:
-        get: ()->
+        data:
+          murderScene: {}
 
     require('../src/murder')(@robot)
 

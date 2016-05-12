@@ -26,16 +26,16 @@ randMsg = (arr) ->
 
 class MurderRobot
   constructor: (@robot) ->
-    @murderScene = @robot.brain.get('murderScene') or {}
-    if @murderScene.placeOfDeath
-      msg = "#{@murderScene.perp}: #{randMsg messages.birth}"
-      robot.messageRoom @murderScene.placeOfDeath, msg
+    murderScene = @robot.brain.data.murderScene
+    if murderScene.placeOfDeath
+      msg = "#{murderScene.perp}: #{randMsg messages.birth}"
+      robot.messageRoom murderScene.placeOfDeath, msg
   kill: (res) ->
-    @murderScene =
+    murderScene =
       timeOfDeath: Date.now()
       placeOfDeath: res.envelope.room
       perp: res.envelope.user.name
-    @robot.brain.set 'murderScene', @murderScene
+    @robot.brain.data.murderScene = murderScene
 
 module.exports = (robot) ->
   murderRobot = new MurderRobot robot
