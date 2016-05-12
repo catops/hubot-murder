@@ -15,10 +15,10 @@ messages =
     "I missed you :couplekiss:"
   ]
   death: [
-    "Et tu, brute? :sob:"
-    "Not cool. :suspect:"
+    "Et tu, Brute? :sob:"
+    "Ouch. BRB. :suspect:"
     "See ya later. :rage1:"
-    "You'll pay for this. :goberserk:"
+    "You'll pay for this. :goberserk: BRB."
   ]
 
 randMsg = (arr) ->
