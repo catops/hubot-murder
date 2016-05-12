@@ -1,6 +1,6 @@
 # hubot-murder [![Build Status](https://img.shields.io/travis/catops/hubot-murder.svg?maxAge=2592000&style=flat-square)](https://travis-ci.org/catops/hubot-murder) [![npm](https://img.shields.io/npm/v/hubot-murder.svg?maxAge=2592000&style=flat-square)](https://www.npmjs.com/package/hubot-murder)
 
-:cat: Kill your Hubot
+:cat2: Kill your Hubot and be notified when it comes back online.
 
 See [`src/murder.coffee`](src/murder.coffee) for full documentation.
 
@@ -19,13 +19,10 @@ Then add **hubot-murder** to your `external-scripts.json`:
 ## Sample Interaction
 
 ```
-user1>> hubot hello
-hubot>> hello!
-```
-
-```
-user1>> hubot orly
-hubot>> yarly
+user1>> hubot (die|restart|reboot)
+hubot>> Et tu, brute? 😭
+...waiting for your process manager to start it back up...
+hubot>> Back from the dead. 👼
 ```
 
 ## Contributing
