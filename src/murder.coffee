@@ -15,7 +15,7 @@ messages =
     "I missed you :couplekiss:"
   ]
   death: [
-    "Et tu, brute? :sob:"
+    "Et tu, Brute? :sob:"
     "Not cool. :suspect:"
     "See ya later. :rage1:"
     "You'll pay for this. :goberserk:"
