@@ -26,21 +26,22 @@ randMsg = (arr) ->
 
 class MurderRobot
   constructor: (robot) ->
+    @robot = robot
     # Hubot's 'loaded' event fires on every save so let's just wait a few seconds instead
     setTimeout () ->
-      murderScene = robot.brain.get 'murderScene'
+      murderScene = @robot.brain.get 'murderScene'
       # Only report back if it's been less than ten minutes
       if murderScene and murderScene.placeOfDeath and ((Date.now() - murderScene.timeOfDeath) < 600000)
         msg = "#{murderScene.perp}: #{randMsg messages.birth}"
-        robot.messageRoom murderScene.placeOfDeath, msg
+        @robot.messageRoom murderScene.placeOfDeath, msg
     , 5000
   kill: (res) ->
     murderScene =
       timeOfDeath: Date.now()
       placeOfDeath: res.envelope.room
       perp: res.envelope.user.name
-    robot.brain.set 'murderScene', murderScene
-    robot.brain.save()
+    @robot.brain.set 'murderScene', murderScene
+    @robot.brain.save()
 
 module.exports = (robot) ->
   murderRobot = new MurderRobot robot
