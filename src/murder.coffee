@@ -46,7 +46,7 @@ class MurderRobot
 module.exports = (robot) ->
   murderRobot = new MurderRobot robot
 
-  robot.respond /(die|restart|reboot)/, (res) ->
+  robot.respond /(die|restart|reboot|seppuku)/, (res) ->
     murderRobot.kill res
     res.send randMsg messages.death
     setTimeout () ->

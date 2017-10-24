@@ -15,4 +15,4 @@ describe 'die', ->
     require('../src/murder')(@robot)
 
   it 'registers a respond listener', ->
-    expect(@robot.respond).to.have.been.calledWith(/(die|restart|reboot)/)
+    expect(@robot.respond).to.have.been.calledWith(/(die|restart|reboot|seppuku)/)
